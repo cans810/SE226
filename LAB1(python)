@@ -1,0 +1,22 @@
+name = input("What is your name? \n")
+print("Hello " + name + ".")
+studentID = input ("What is your Student ID? \n")
+print("Your ID is " + studentID + ".")
+------------------------------------------------------
+number1 = input("Please enter number 1: ")
+number2 = input("Please enter number 2: ")
+
+sum = int(number1) + int(number2)
+diff = int(number1) - int(number2)
+prod = int(number1) * int(number2)
+
+print("Number 1 is: " + number1)
+print("Number 2 is: " + number2)
+print("The sum of the two numbers: " + str(sum))
+print("The difference of the two numbers: " + str(diff))
+print("The product of the two numbers: " + str(prod))
+
+---------------------------------------------------------
+print("*\n**\n***")
+
+
