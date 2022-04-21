@@ -1,0 +1,59 @@
+n = int(input("n: "))
+x = lambda i : ((i-3)/(i*i) + x(i-1)) if i != 0 else 0
+
+print(x(n))
+
+-------------------------------------------------------
+
+def recursive_func1(n):
+    if n == 0:
+        return 1
+    else:
+        return ((n/(n+2)) - 10) * recursive_func1(n-1)
+
+n2 = int(input("n2: "))
+print(recursive_func1(n2).__doc__)
+
+--------------------------------------------------------
+--------------------------------------------------------
+--------------------------------------------------------
+
+#include <iostream>
+
+using namespace std;
+
+int recursive_function(int n);
+int recursive_function();
+
+int main(){
+    int n;
+    cout << "Type n: ";
+    cin >> n;
+    cout << recursive_function();
+}
+
+int recursive_function(int n){
+    if (n==0){
+        return 1;
+    }
+    else {
+        return (((n/(n+2)) - 10) * recursive_function(n-1));
+    }
+}
+
+int recursive_function(){
+    int n;
+    cout << "Enter n:";
+    cin >> n;
+    if (n==0){
+        return 1;
+    }
+    else {
+        return (((n/(n+2)) - 10) * recursive_function(n-1));
+    }
+}
+
+-------------------------------------------------------
+
+
+
