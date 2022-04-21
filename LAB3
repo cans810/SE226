@@ -11,25 +11,25 @@ class Node{
 class Stack{
     private:
         Node *head;
-        int _size;
+        int size2;
         int max_size;
 
     public:
         Stack(int n){
             head = nullptr;
-            _size = 0;
+            size2 = 0;
             max_size = n;
         }
 
         void push(int x){
-            if(_size + 1 > max_size){
+            if(size2 + 1 > max_size){
                 cout << "Stack overflow" << endl;
             } else{
                 Node *temp = new Node();
                 (*temp).data = x;
                 (*temp).next = head;
                 head = temp;
-                _size++;
+                size2++;
             }
         }
 
@@ -40,19 +40,19 @@ class Stack{
         int pop(){
             int topData = top();
             head = head->next;
-            _size--;
+            size2--;
             return topData;
         }
 
         bool isEmpty(){
-            if(_size==0){
+            if(size2==0){
                 return true;
             }
             return false;
         }
 
         int size(){
-            return _size;
+            return size2;
         }
 
         void print(){
