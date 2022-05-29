@@ -1,0 +1,20 @@
+import cv2
+import numpy as np
+
+image = cv2.imread("C:\\Users\\bersay\\Downloads\\Lab7_TestImage.jpeg")
+cv2.imshow("Original Image", image)
+
+(B, G, R) = cv2.split(image)
+cv2.imshow("Blue Image", B)
+cv2.imshow("Green Image", G)
+cv2.imshow("Red Image", R)
+
+minimum_value = np.array([30, 60, 80])
+maximum_value = np.array([200, 225, 250])
+B = cv2.inRange(image, minimum_value, maximum_value)
+
+merge = cv2.merge([B, G, R])
+cv2.imshow("Merged Image", merge)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
