@@ -1,0 +1,49 @@
+from abc import ABC
+
+class CountAbstract(ABC):
+    def __init__(self, address):
+        self.address = address
+
+    def calculateFreqs(self):
+        pass
+
+
+class ListCount(CountAbstract):
+    def calculateFreqs(self):
+        with open(self.address, 'r') as fileinput:
+            for line in fileinput:
+                line = line.lower()
+        words_list = line.split(" ")
+        wordfrequency = []
+
+        for word in words_list:
+            wordfrequency.append(words_list.count(word))
+
+        print(str(list(zip(words_list, wordfrequency))))
+
+class DictCount(CountAbstract):
+    def calculateFreqs(self):
+        file = open(self.address, 'r')
+        words_dictionary = dict()
+
+        for line in file:
+            line = line.strip()
+            line = line.lower()
+            words = line.split(" ")
+
+            for word in words:
+                if word in words_dictionary:
+                    words_dictionary[word] = words_dictionary[word] + 1
+                else:
+                    words_dictionary[word] = 1
+
+        for key in list(words_dictionary.keys()):
+            print(key, ":", words_dictionary[key])
+
+
+
+count_list = ListCount('strange.txt')
+count_list.calculateFreqs()
+
+count_dict = DictCount('strange.txt')
+count_dict.calculateFreqs()
