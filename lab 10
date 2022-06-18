@@ -1,0 +1,38 @@
+from tkinter import *
+
+window = Tk()
+window.title('Marvel GUI')
+window.geometry("750x550")
+
+def open_txt():
+    text.delete("1.0", END)
+    txt_file = open("C:\\Users\\Can\\Downloads\\Marvel.txt")
+    stuff = txt_file.read()
+    text.insert(END, stuff)
+    txt_file.close()
+
+def calculate_txt():
+    text.delete("1.0", END)
+    txt_file = open("C:\\Users\\Can\\Downloads\\Marvel.txt").read()
+    txt_file = txt_file.split()
+    freq = []
+
+    for i in txt_file:
+        if i not in freq:
+            freq.append(i)
+
+    for i in range(0, len(freq)):
+        str_ = (freq[i], "=", txt_file.count(freq[i]))
+        text.insert(END, str_)
+        text.insert(END, "\n")
+
+text = Text(window, width=150, height=15, font=("Times New Roman", 16))
+text.pack(pady=20)
+
+read_button = Button(window, text="Read", command=open_txt)
+read_button.pack(pady=20)
+
+calculate_button = Button(window, text="Calculate", command=calculate_txt)
+calculate_button.pack(pady=20)
+
+window.mainloop()
